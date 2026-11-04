@@ -11,7 +11,6 @@ Early planning. No stack chosen yet. Work happens in three phases: product spec 
 ## Conventions
 - **Language:** all user-facing bot text is Hebrew and lives in one centralized messages/locale module. Code, comments, commits, PRs and docs are English.
 - **Defaults:** timezone Asia/Jerusalem, week starts Sunday, both configurable per group.
-- **Where work happens:** all work is done locally on the owner's computer and pushed from it, so the files are visible and reviewable locally. Do not do the work in a remote or cloud environment.
 - **Git:** never push directly to `main`. Every change goes through a branch and a PR.
 - **Commits and PRs:** English, conventional prefixes (`docs:`, `feat:`, `fix:`, `chore:`, `test:`).
 - **PRs:** small and independently mergeable. The description explains what changed, why, key concepts introduced, how to test, and what to check in review.
