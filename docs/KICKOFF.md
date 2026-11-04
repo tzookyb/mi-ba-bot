@@ -1,18 +1,18 @@
 # Project: "Mi Ba?" (מי בא?) — A Configurable Group Availability & Session-Matching Bot for Telegram
 
 ## Context
-The first use case is a sports training group with a coach, where sessions are currently coordinated ad-hoc in a group chat. That creates friction: lots of back-and-forth and waiting for replies, and the organizer wastes time chasing people.
+Groups that run sessions with an organizer usually coordinate ad-hoc in a group chat: the organizer asks "anyone want to join tomorrow?", and then there is a lot of back-and-forth and waiting for replies. It creates friction, and the organizer wastes time chasing people.
 
 This is a common problem far beyond tennis: any group where an **organizer** offers **sessions** and **participants** need to respond quickly (sports training, a weekly poker night, band rehearsals, study groups, a padel/football pickup game, a babysitting co-op, etc.).
 
-So I want to build **Mi Ba Bot** (`@MiBaBot` or similar): a generic, **configurable** Telegram bot that any group can add and set up with its own rules. **The tennis group is the first use case and the reference configuration**, but the product and the data model must not be tennis-specific.
+So I want to build **Mi Ba Bot** (`@MiBaBot` or similar): a generic, **configurable** Telegram bot that any group can add and set up with its own rules. **A tennis training group with a coach is the first use case and the reference configuration**, but the product and the data model must not be tennis-specific.
 
 ### The core idea (my initial vision — to be refined with you)
 - On a configurable schedule (e.g. every Sunday), the bot asks each member to mark the time slots they're available.
 - Anytime, members can easily update their availability (plans change).
 - When an organizer has an opening, they tell the bot (e.g. "session tomorrow 19:00").
 - The bot checks the proposed session against members' availability:
-  - If there are matches → it tags the relevant members in the group (and/or DMs them): "Dana, Yossi — there's a session tomorrow evening and you marked you're available. Are you in?" — with quick-reply buttons to book fast.
+  - If there are matches → it tags the relevant members in the group (and/or DMs them): "Alex, Sam — there's a session tomorrow evening and you marked you're available. Are you in?" — with quick-reply buttons to book fast.
   - If nobody is available → it tells the organizer privately, and (depending on config) still posts in the group so anyone whose plans changed can jump in.
 - Goal: fast answers from participants, less waiting and chasing for the organizer.
 
