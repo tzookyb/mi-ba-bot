@@ -1,6 +1,6 @@
 # Mi Ba Bot — Product Spec (v1)
 
-Status: **draft, awaiting approval**. This is the result of the Phase 1 interview (see [KICKOFF.md](KICKOFF.md)). Once approved it is the source of truth for behavior; changes go through a PR that updates this file.
+Status: **draft, awaiting approval** (no open questions left). This is the result of the Phase 1 interview (see [KICKOFF.md](KICKOFF.md)). Once approved it is the source of truth for behavior; changes go through a PR that updates this file.
 
 ## 1. Summary
 
@@ -41,7 +41,7 @@ Everything that differs between groups (slots, opening hours, roles, minimums, w
 | Run /setup, change /settings, manage the organizer list | Telegram group admins |
 | Approve a group (allowlist) | The bot operator only |
 
-The organizer who proposes a session is not tagged as a match for their own session.
+The organizer who proposes a session is not tagged as a match for their own session. Whether they count toward the minimum is chosen per proposal with a "גם אני משתתף/ת" (I'm taking part too) toggle; its starting value is the group setting `organizerCountsByDefault` (tennis: off, since the coach isn't a player).
 
 ## 4. How people talk to the bot
 
@@ -108,7 +108,7 @@ Private chat, buttons only:
 
 Organizers only, private chat, `/propose` or from the overview:
 
-1. Pick a day (this week and next) → start time (granularity steps, inside opening hours) → duration (default from config, e.g. 60 min; organizer can change, e.g. 09:30–11:00) → optional location and notes (if enabled in config) → deadline (default: 2 h before start; if the session is sooner than that, the deadline is the start time).
+1. Pick a day (this week and next) → start time (granularity steps, inside opening hours) → duration (default from config, e.g. 60 min; organizer can change, e.g. 09:30–11:00) → optional location and notes (if enabled in config) → deadline (default: 2 h before start; if the session is sooner than that, the deadline is the start time) → `גם אני משתתף/ת` toggle (starts as `organizerCountsByDefault`). If on, the organizer is added to the in-list and counts toward the minimum.
 2. **Preview:** the bot shows who matches before posting: `מתאימים: אלון, שירה. אולי: דנה. לפרסם? [פרסום] [עריכה] [ביטול]`
 3. **Overlap warning:** if another open or set session in the group overlaps this time, the organizer sees `שים/י לב: יש כבר אימון ביום ה׳ 19:00` and can still post.
 4. On **פרסום** the bot posts in the group (5.6).
@@ -214,6 +214,7 @@ All settings are per group. "Later" means the field exists in the design but has
 | `maxParticipants` | int or none | none | none | ✅ |
 | `organizerMode` | `everyone` / `list` | `everyone` | `everyone` | ✅ |
 | `organizers` | list of members | — | — | ✅ |
+| `organizerCountsByDefault` | bool | off | off | ✅ |
 | `overviewVisibility` | `organizers` / `all` | `organizers` | `organizers` | ✅ |
 | `sessionFields.location` | off / optional / required | optional | optional | ✅ |
 | `sessionFields.notes` | off / optional | optional | optional | ✅ |
@@ -250,7 +251,3 @@ A typical week:
 3. The group sees the post tagging the matches. Alon taps אני בא (1/2). Shira taps אני בא (2/2) → "האימון נקבע ✅ יום ה׳ 13.11, 19:00. באים: @אלון @שירה".
 4. Thursday 16:00: Alon and Shira get the 3 h reminder.
 5. If only Alon had tapped by the deadline (17:00), the coach would get "יש רק 1 מתוך 2. מה עושים?".
-
-## 9. Open questions
-
-1. **Does the organizer count toward the minimum?** Draft: no (the coach isn't a player). For player-organized games this may need a per-proposal "I'm playing too" toggle. Proposed: add that toggle in v1, default off.
