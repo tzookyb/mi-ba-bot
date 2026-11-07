@@ -94,14 +94,14 @@ Private chat, buttons only:
 3. Shortcuts: `[כמו שבוע שעבר]` (same as last week), `[לא פנוי השבוע]` (not available this week), `[סיום]`.
 4. **Several groups:** if the member is in more than one group, after saving the bot asks: `לעדכן את זה גם בקבוצות האחרות שלך? [כל הקבוצות] [רק בקבוצה הזו]`.
 5. **Update any time:** `/my` reopens the same screen for this week or next week. Changes take effect on the next proposal. They don't change bookings on sessions already posted (people answer those with the buttons).
-6. **No answer this week:** last week's availability is carried over as this week's. A member who never submitted has no availability and is never tagged (they still see group posts).
+6. **No answer this week:** the member counts as not available this week. Nothing is carried over automatically; `[כמו שבוע שעבר]` is a one-tap way to copy last week. A member with no availability is never tagged, but still sees group posts and can tap in.
 
 ### 5.4 Weekly prompt and reminder
 
 - At the configured time (default: Saturday 20:00, the evening before the week starts), the bot sends each registered member a private message:
   > שבוע חדש מתחיל! מתי את/ה פנוי/ה? [כמו שבוע שעבר] [לעדכון]
 - And one short group post for members who aren't registered: `סמנו זמינות לשבוע הבא 👇 [הצטרפות / עדכון]`.
-- **Reminder:** members who didn't answer get one reminder after a configurable delay (default 14 h). "Didn't answer" means they didn't tap anything on the prompt. Note that carry-over still applies if they never answer.
+- **Reminder:** members who didn't answer get one reminder after a configurable delay (default 14 h). "Didn't answer" means they didn't tap anything on the prompt. If they still don't answer, they count as not available this week.
 - Private messages respect quiet hours (default 22:00–07:00): anything due then waits until quiet hours end.
 
 ### 5.5 Proposing a session
@@ -225,7 +225,6 @@ All settings are per group. "Later" means the field exists in the design but has
 | `weeklyPrompt.day` / `.time` | weekday / HH:MM | Saturday 20:00 | same | ✅ |
 | `weeklyPrompt.cadence` | weekly / bi-weekly | weekly | weekly | later |
 | `weeklyPrompt.reminderAfterHours` | hours or off | 14 | 14 | ✅ |
-| `carryOverLastWeek` | bool | on | on | ✅ |
 | `notify.tagInGroup` | bool | on | on | ✅ |
 | `notify.privateToMatches` | bool | off | off | ✅ |
 | `notify.postWhenNoMatch` | bool | on | on | ✅ |
@@ -246,7 +245,7 @@ All settings are per group. "Later" means the field exists in the design but has
 
 A typical week:
 
-1. Saturday 20:00: everyone gets "שבוע חדש מתחיל!". Alon taps `כמו שבוע שעבר`. Shira marks Thursday ערב and Friday 15:00–18:00. Dana doesn't answer; Sunday 10:00 she gets a reminder; she still doesn't answer, so last week's (Thursday 18:00–19:30) carries over.
+1. Saturday 20:00: everyone gets "שבוע חדש מתחיל!". Alon taps `כמו שבוע שעבר`. Shira marks Thursday ערב and Friday 15:00–18:00. Dana doesn't answer; Sunday 10:00 she gets a reminder and marks Thursday 18:00–19:30. Yossi never answers, so he counts as not available this week.
 2. Wednesday: the coach opens `/propose` → Thursday → 19:00 → 60 min → מגרש 3. Preview: matches Alon and Shira (free for all of 19:00–20:00), maybe Dana (free only until 19:30). The coach taps פרסום.
 3. The group sees the post tagging the matches. Alon taps אני בא (1/2). Shira taps אני בא (2/2) → "האימון נקבע ✅ יום ה׳ 13.11, 19:00. באים: @אלון @שירה".
 4. Thursday 16:00: Alon and Shira get the 3 h reminder.
