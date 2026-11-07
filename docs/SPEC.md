@@ -253,5 +253,4 @@ A typical week:
 
 ## 9. Open questions
 
-1. **Allowlist** (5.13): drafted as the v1 default; waiting for confirmation.
-2. **Does the organizer count toward the minimum?** Draft: no (the coach isn't a player). For player-organized games this may need a per-proposal "I'm playing too" toggle. Proposed: add that toggle in v1, default off.
+1. **Does the organizer count toward the minimum?** Draft: no (the coach isn't a player). For player-organized games this may need a per-proposal "I'm playing too" toggle. Proposed: add that toggle in v1, default off.
