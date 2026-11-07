@@ -6,7 +6,7 @@ Shared project context for AI coding agents and contributors. Keep this file cur
 Mi Ba Bot (מי בא?) is a configurable Telegram bot. It collects group members' weekly availability and matches it against sessions proposed by an organizer, so people can book quickly. Behavior is driven by per-group configuration, never hardcoded. The first use case (a tennis training group with a coach) is the reference preset, but nothing in the data model may be tennis-specific.
 
 ## Status
-Early planning. No stack chosen yet. Work happens in three phases: product spec (`docs/SPEC.md`), technical plan (`docs/PLAN.md`), then implementation one small PR per plan step. See `docs/KICKOFF.md` for the full vision.
+Phase 1 (product spec) drafted in `docs/SPEC.md`, awaiting approval. No stack chosen yet. Work happens in three phases: product spec (`docs/SPEC.md`), technical plan (`docs/PLAN.md`), then implementation one small PR per plan step. See `docs/KICKOFF.md` for the full vision.
 
 ## Conventions
 - **Language:** all user-facing bot text is Hebrew and lives in one centralized messages/locale module. Code, comments, commits, PRs and docs are English.
