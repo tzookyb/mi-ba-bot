@@ -6,7 +6,13 @@ Shared project context for AI coding agents and contributors. Keep this file cur
 Mi Ba Bot (מי בא?) is a configurable Telegram bot. It collects group members' weekly availability and matches it against sessions proposed by an organizer, so people can book quickly. Behavior is driven by per-group configuration, never hardcoded. The first use case (a tennis training group with a coach) is the reference preset, but nothing in the data model may be tennis-specific.
 
 ## Status
-Spec approved (`docs/SPEC.md`). Stack chosen: TypeScript + grammY on Cloudflare Workers with D1. Technical plan drafted in `docs/PLAN.md`, awaiting approval. Work happens in three phases: product spec (`docs/SPEC.md`), technical plan (`docs/PLAN.md`), then implementation one small PR per plan step. See `docs/KICKOFF.md` for the full vision.
+Spec approved (`docs/SPEC.md`). Stack chosen: TypeScript + grammY on Cloudflare Workers with D1. Plan approved (`docs/PLAN.md`); implementing it one step per PR, progress is checked off there. Work happens in three phases: product spec (`docs/SPEC.md`), technical plan (`docs/PLAN.md`), then implementation one small PR per plan step. See `docs/KICKOFF.md` for the full vision.
+
+## Commands
+- `npm ci`: install exact dependency versions from `package-lock.json`.
+- `npm run lint` / `npm run format`: Biome check / auto-fix (Markdown is excluded).
+- `npm run typecheck`: TypeScript, no output files.
+- `npm test`: Vitest. Tests sit next to the code as `*.test.ts`.
 
 ## Conventions
 - **Language:** all user-facing bot text is Hebrew and lives in one centralized messages/locale module. Code, comments, commits, PRs and docs are English.

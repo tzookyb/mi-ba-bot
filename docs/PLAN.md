@@ -1,6 +1,6 @@
 # Mi Ba Bot — Technical Plan
 
-Status: **draft, awaiting approval**. Implements [SPEC.md](SPEC.md). Each step below is one branch and one PR. Check a step off here in the same PR that finishes it.
+Status: **approved**. Implements [SPEC.md](SPEC.md). Each step below is one branch and one PR. Check a step off here in the same PR that finishes it.
 
 ## 1. Stack
 
@@ -88,7 +88,7 @@ Legend: **Goal**, **Files**, **Tests**, **Verify** (by hand), **Learn**. Every s
 
 ### Foundation
 
-- [ ] **1. Repo skeleton**
+- [x] **1. Repo skeleton**
   - Goal: TypeScript project with Biome, Vitest and a first pure function.
   - Files: `package.json`, `tsconfig.json`, `biome.json`, `.nvmrc`, `src/domain/time/weekday.ts`, its test, `.gitignore` (+ `.dev.vars`, `.wrangler/`).
   - Tests: one small unit test.

@@ -1,6 +1,6 @@
 # Mi Ba Bot — Product Spec (v1)
 
-Status: **draft, awaiting approval** (no open questions left). This is the result of the Phase 1 interview (see [KICKOFF.md](KICKOFF.md)). Once approved it is the source of truth for behavior; changes go through a PR that updates this file.
+Status: **approved**. This is the result of the Phase 1 interview (see [KICKOFF.md](KICKOFF.md)). Once approved it is the source of truth for behavior; changes go through a PR that updates this file.
 
 ## 1. Summary
 
