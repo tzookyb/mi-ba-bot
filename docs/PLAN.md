@@ -95,7 +95,7 @@ Legend: **Goal**, **Files**, **Tests**, **Verify** (by hand), **Learn**. Every s
   - Verify: `npm ci && npm run lint && npm run typecheck && npm test`.
   - Learn: project tooling, strict TS settings, Biome.
 
-- [ ] **2. CI**
+- [x] **2. CI**
   - Goal: GitHub Actions runs lint, typecheck and tests on every PR.
   - Files: `.github/workflows/ci.yml`.
   - Verify: the PR itself shows a green check. Optional: protect `main` so CI must pass.

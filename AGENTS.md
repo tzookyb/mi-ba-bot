@@ -13,6 +13,7 @@ Spec approved (`docs/SPEC.md`). Stack chosen: TypeScript + grammY on Cloudflare 
 - `npm run lint` / `npm run format`: Biome check / auto-fix (Markdown is excluded).
 - `npm run typecheck`: TypeScript, no output files.
 - `npm test`: Vitest. Tests sit next to the code as `*.test.ts`.
+- CI (`.github/workflows/ci.yml`) runs lint, typecheck and tests on every PR and on `main`. Keep it green before asking for review.
 
 ## Conventions
 - **Language:** all user-facing bot text is Hebrew and lives in one centralized messages/locale module. Code, comments, commits, PRs and docs are English.
