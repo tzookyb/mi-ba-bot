@@ -101,7 +101,7 @@ Legend: **Goal**, **Files**, **Tests**, **Verify** (by hand), **Learn**. Every s
   - Verify: the PR itself shows a green check. Optional: protect `main` so CI must pass.
   - Learn: Actions workflows, caching npm.
 
-- [ ] **3. Hello Worker**
+- [x] **3. Hello Worker**
   - Goal: a Worker that answers `GET /health` with `ok`, deployed to Cloudflare by hand.
   - Files: `wrangler.toml`, `src/index.ts`, test using the Workers pool.
   - Verify: `npm run dev` then open `/health`; `npx wrangler deploy --env dev` and open the `*.workers.dev` URL.

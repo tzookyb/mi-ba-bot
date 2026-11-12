@@ -13,6 +13,10 @@ Spec approved (`docs/SPEC.md`). Stack chosen: TypeScript + grammY on Cloudflare 
 - `npm run lint` / `npm run format`: Biome check / auto-fix (Markdown is excluded).
 - `npm run typecheck`: TypeScript, no output files.
 - `npm test`: Vitest. Tests sit next to the code as `*.test.ts`.
+- `npm run dev`: run the Worker locally with Wrangler (http://localhost:8787/health).
+- `npm run deploy:dev`: deploy the `dev` environment to Cloudflare (needs `npx wrangler login` once).
+- `npm run cf-typegen`: regenerate `worker-configuration.d.ts` (the `Env` and runtime types) after changing `wrangler.toml`. The file is generated and committed; don't edit it by hand.
+- Tests run inside the Workers runtime through `@cloudflare/vitest-plugin`; call the Worker with `exports.default.fetch()` from `cloudflare:workers`.
 - CI (`.github/workflows/ci.yml`) runs lint, typecheck and tests on every PR and on `main`. Keep it green before asking for review.
 
 ## Conventions

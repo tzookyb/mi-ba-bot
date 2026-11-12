@@ -1,0 +1,10 @@
+# Cloudflare Worker config. Docs: https://developers.cloudflare.com/workers/wrangler/configuration/
+name = "mibabot"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Development environment: the test bot and test group. Deploy with `npm run deploy:dev`.
+# Production gets its own [env.prod] block in a later step.
+[env.dev]
+name = "mibabot-dev"
