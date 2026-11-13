@@ -20,3 +20,22 @@ describe("worker fetch", () => {
     expect(response.status).toBe(404);
   });
 });
+
+describe("POST /webhook", () => {
+  it("rejects a request without the secret header", async () => {
+    const response = await exports.default.fetch("https://example.com/webhook", {
+      method: "POST",
+      body: "{}",
+    });
+    expect(response.status).toBe(401);
+  });
+
+  it("rejects a request with a wrong secret", async () => {
+    const response = await exports.default.fetch("https://example.com/webhook", {
+      method: "POST",
+      headers: { "X-Telegram-Bot-Api-Secret-Token": "wrong" },
+      body: "{}",
+    });
+    expect(response.status).toBe(401);
+  });
+});

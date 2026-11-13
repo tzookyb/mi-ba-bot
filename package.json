@@ -11,18 +11,23 @@
   "scripts": {
     "lint": "biome check .",
     "format": "biome check --write .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p scripts",
     "test": "vitest run",
     "test:watch": "vitest",
     "dev": "wrangler dev",
     "deploy:dev": "wrangler deploy --env dev",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types --env-file .dev.vars.example",
+    "set-webhook": "node --env-file=.dev.vars scripts/set-webhook.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.6.6",
     "@cloudflare/vitest-plugin": "^1.8.1",
+    "@types/node": "^24.19.2",
     "typescript": "^7.0.2",
     "vitest": "^5.1.0",
     "wrangler": "^4.161.0"
+  },
+  "dependencies": {
+    "grammy": "^1.46.0"
   }
 }

@@ -107,7 +107,7 @@ Legend: **Goal**, **Files**, **Tests**, **Verify** (by hand), **Learn**. Every s
   - Verify: `npm run dev` then open `/health`; `npx wrangler deploy --env dev` and open the `*.workers.dev` URL.
   - Learn: the Workers model (`fetch` handler, bindings, environments), wrangler.
 
-- [ ] **4. Test bot + test group, hello bot**
+- [x] **4. Test bot + test group, hello bot**
   - Goal: a dev bot answers `/start` with a Hebrew hello, through the webhook.
   - Files: `docs/DEV.md` (BotFather steps, test group, tunnel, secrets), `.dev.vars.example`, `src/bot/index.ts`, `src/messages/he.ts`, `scripts/set-webhook.ts`.
   - Tests: webhook rejects a wrong secret header; `/start` handler replies (Telegram API mocked).
