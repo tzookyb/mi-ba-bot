@@ -15,7 +15,8 @@ Spec approved (`docs/SPEC.md`). Stack chosen: TypeScript + grammY on Cloudflare 
 - `npm test`: Vitest. Tests sit next to the code as `*.test.ts`.
 - `npm run dev`: run the Worker locally with Wrangler (http://localhost:8787/health).
 - `npm run deploy:dev`: deploy the `dev` environment to Cloudflare (needs `npx wrangler login` once).
-- `npm run cf-typegen`: regenerate `worker-configuration.d.ts` (the `Env` and runtime types) after changing `wrangler.toml`. The file is generated and committed; don't edit it by hand.
+- `npm run cf-typegen`: regenerate `worker-configuration.d.ts` (the `Env` and runtime types) after changing `wrangler.toml` or `.dev.vars.example` (secret names come from that file, never from `.dev.vars`). The file is generated and committed; don't edit it by hand.
+- `npm run set-webhook -- <worker URL>`: point the dev bot's webhook at a Worker. Full dev setup (test bot, secrets, tunnel) is in `docs/DEV.md`.
 - Tests run inside the Workers runtime through `@cloudflare/vitest-plugin`; call the Worker with `exports.default.fetch()` from `cloudflare:workers`.
 - CI (`.github/workflows/ci.yml`) runs lint, typecheck and tests on every PR and on `main`. Keep it green before asking for review.
 
@@ -25,7 +26,7 @@ Spec approved (`docs/SPEC.md`). Stack chosen: TypeScript + grammY on Cloudflare 
 - **Git:** never push directly to `main`. Every change goes through a branch and a PR.
 - **Commits and PRs:** English, conventional prefixes (`docs:`, `feat:`, `fix:`, `chore:`, `test:`).
 - **PRs:** small and independently mergeable. The description explains what changed, why, key concepts introduced, how to test, and what to check in review.
-- **Secrets:** never commit tokens or credentials. Use gitignored `.env` locally and the host's secret storage for deployment.
+- **Secrets:** never commit tokens or credentials. Use gitignored `.dev.vars` locally (template: `.dev.vars.example`) and the host's secret storage for deployment.
 - **Tests:** cover matching, slot/time/timezone handling, booking rules and config validation.
 - **Privacy:** no personal information in the repo. Personal context goes in `CLAUDE.local.md`, which is gitignored.
 - **Spec changes:** if implementation reveals the spec must change, propose it, update `docs/SPEC.md` after agreement, then continue.

@@ -1,0 +1,7 @@
+# Copy to .dev.vars (gitignored) and fill in real values. Never commit .dev.vars.
+# Deployed Workers get the same names via: npx wrangler secret put <NAME> --env dev
+
+# Token from @BotFather for the DEV bot (never the production bot).
+BOT_TOKEN=
+# Random string Telegram sends back on every webhook call. Generate with: openssl rand -hex 32
+WEBHOOK_SECRET=
