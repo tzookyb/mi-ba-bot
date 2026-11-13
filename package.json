@@ -13,11 +13,16 @@
     "format": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "dev": "wrangler dev",
+    "deploy:dev": "wrangler deploy --env dev",
+    "cf-typegen": "wrangler types"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.6.6",
+    "@cloudflare/vitest-plugin": "^1.8.1",
     "typescript": "^7.0.2",
-    "vitest": "^5.1.0"
+    "vitest": "^5.1.0",
+    "wrangler": "^4.161.0"
   }
 }
